@@ -1,0 +1,157 @@
+import Link from "next/link";
+import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-gray-900 text-gray-300">
+      <div className="container-custom section-padding">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div>
+            <h3 className="text-white text-xl font-bold mb-4">
+              Travancore Medical System
+            </h3>
+            <p className="mb-4">
+              Leading distributor of premium medical equipment for sleep apnea
+              treatment and respiratory care.
+            </p>
+            <div className="space-y-2">
+              <div className="flex items-start space-x-3">
+                <FiMapPin className="mt-1 flex-shrink-0" />
+                <span className="text-sm">Kerala, India</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <FiPhone />
+                <a
+                  href="tel:+919447950001"
+                  className="text-sm hover:text-white transition-colors"
+                >
+                  +91 99479 50001
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <FiMail />
+                <a
+                  href="mailto:info@travancoremedical.com"
+                  className="text-sm hover:text-white transition-colors"
+                >
+                  info@travancoremedical.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-white text-lg font-semibold mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-white transition-colors text-sm"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products"
+                  className="hover:text-white transition-colors text-sm"
+                >
+                  Products
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-white transition-colors text-sm"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-white transition-colors text-sm"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Products */}
+          <div>
+            <h3 className="text-white text-lg font-semibold mb-4">
+              Our Products
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/products/auto-cpap"
+                  className="hover:text-white transition-colors text-sm"
+                >
+                  Auto CPAP
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/bipap"
+                  className="hover:text-white transition-colors text-sm"
+                >
+                  BiPAP
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/oxygen-concentrator"
+                  className="hover:text-white transition-colors text-sm"
+                >
+                  Oxygen Concentrator
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/travel-cpap"
+                  className="hover:text-white transition-colors text-sm"
+                >
+                  Travel CPAP
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/portable-oxygen-concentrator"
+                  className="hover:text-white transition-colors text-sm"
+                >
+                  Portable Oxygen Concentrator
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-white text-lg font-semibold mb-4">Services</h3>
+            <ul className="space-y-2 text-sm">
+              <li>Product Consultation</li>
+              <li>Equipment Installation</li>
+              <li>Maintenance & Support</li>
+              <li>Warranty Services</li>
+              <li>Rental Options</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+          <p>
+            &copy; {currentYear} Travancore Medical System. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}

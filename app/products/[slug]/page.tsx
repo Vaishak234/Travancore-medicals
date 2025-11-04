@@ -1,0 +1,178 @@
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import {
+  getProductBySlug,
+  getAllProductSlugs,
+  products,
+} from "@/data/products";
+import { FiPhone, FiCheck, FiArrowLeft } from "react-icons/fi";
+import StructuredData from "@/components/StructuredData";
+import ProductTabs from "@/components/ProductTabs";
+import ProductImage from "@/components/ProductImage";
+import ProductImageGallery from "@/components/ProductImageGallery";
+
+export async function generateStaticParams() {
+  return getAllProductSlugs().map((slug) => ({
+    slug,
+  }));
+}
+
+export default function ProductPage({ params }: { params: { slug: string } }) {
+  const product = getProductBySlug(params.slug);
+
+  if (!product) {
+    notFound();
+  }
+
+  // Related products (same category, excluding current)
+  const relatedProducts = products
+    .filter((p) => p.category === product.category && p.id !== product.id)
+    .slice(0, 3);
+
+  const productStructuredData = {
+    name: product.name,
+    description: product.fullDescription,
+    image: `https://travancoremedical.com${product.image}`,
+    brand: {
+      "@type": "Brand",
+      name: "Travancore Medical System",
+    },
+    offers: {
+      "@type": "Offer",
+      availability: product.inStock
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+      priceCurrency: "INR",
+      seller: {
+        "@type": "Organization",
+        name: "Travancore Medical System",
+      },
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      reviewCount: "50",
+    },
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <StructuredData type="Product" data={productStructuredData} />
+
+      {/* Breadcrumb */}
+      <section className="bg-white py-3 sm:py-4 border-b sticky top-20 z-10">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
+          <nav className="flex items-center space-x-2 text-xs sm:text-sm overflow-x-auto">
+            <Link
+              href="/"
+              className="text-gray-600 hover:text-primary-600 whitespace-nowrap"
+            >
+              Home
+            </Link>
+            <span className="text-gray-400">/</span>
+            <Link
+              href="/products"
+              className="text-gray-600 hover:text-primary-600 whitespace-nowrap"
+            >
+              Products
+            </Link>
+            <span className="text-gray-400">/</span>
+            <span className="text-gray-900 font-medium truncate">
+              {product.name}
+            </span>
+          </nav>
+        </div>
+      </section>
+
+      {/* Product Header */}
+      <section className="bg-white py-6 sm:py-8">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/products"
+            className="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 mb-4 sm:mb-6 text-sm sm:text-base"
+          >
+            <FiArrowLeft />
+            <span>Back to Products</span>
+          </Link>
+
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
+            {/* Product Images */}
+            <div>
+              <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gradient-to-br from-primary-50 to-accent-50 rounded-xl mb-4 overflow-hidden border border-gray-200">
+                <ProductImage
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className={`object-cover object-${product.position}`}
+                  fallbackText={product.name}
+                />
+              </div>
+              {product.images && product.images.length > 0 && (
+                <ProductImageGallery
+                  images={product.images}
+                  productName={product.name}
+                />
+              )}
+            </div>
+
+            {/* Product Info */}
+            <div>
+              <div className="mb-3 sm:mb-4">
+                <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 bg-primary-100 text-primary-700 rounded-full text-xs sm:text-sm font-semibold">
+                  {product.category}
+                </span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-gray-900">
+                {product.name}
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 leading-relaxed">
+                {product.shortDescription}
+              </p>
+
+              {/* Key Highlights */}
+              {product.benefits && product.benefits.length > 0 && (
+                <div className="bg-primary-50 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 border border-primary-100">
+                  <h3 className="text-base sm:text-lg font-semibold text-primary-900 mb-2 sm:mb-3">
+                    Key Benefits
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-2">
+                    {product.benefits.slice(0, 4).map((benefit, idx) => (
+                      <div key={idx} className="flex items-start space-x-2">
+                        <FiCheck
+                          className="text-primary-600 mt-1 flex-shrink-0"
+                          size={16}
+                        />
+                        <span className="text-xs sm:text-sm text-gray-700">
+                          {benefit}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                <a
+                  href="tel:+919447950001"
+                  className="btn-primary w-full text-center block text-sm sm:text-base"
+                >
+                  <span className="flex items-center justify-center space-x-2">
+                    <FiPhone />
+                    <span>Call for Price & Details</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tabbed Content */}
+      <section className="py-8 sm:py-10 md:py-12">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
+          <ProductTabs product={product} />
+        </div>
+      </section>
+    </div>
+  );
+}
