@@ -18,7 +18,7 @@ export default function MapSection() {
       )} */}
 
       <iframe
-        src="https://www.google.com/maps?q=Trivandrum,+Kerala,+India&output=embed"
+        src="https://www.google.com/maps?q=Bethany+Building,+1st+Floor,+Nalanchira+Kurishadi+Junction,+Nalanchira+P.O,+Opposite+Federal+Bank+ATM,+MC+Road,+Trivandrum+695015&output=embed"
         width="100%"
         height="100%"
         style={{ border: 0 }}

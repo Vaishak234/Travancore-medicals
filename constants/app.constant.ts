@@ -12,20 +12,20 @@ export const APP_CONSTANTS = {
   // Contact Information
   contact: {
     phone: {
-      raw: "+919447950001",
-      formatted: "+91 99479 50001",
-      tel: "tel:+919447950001",
+      raw: "+919496714846",
+      formatted: "+91 9496714846",
+      tel: "tel:+919496714846",
     },
-    email: "info@travancoremedical.com",
+    email: "mail@trivandrummedicalsystem.com",
     location: {
-      full: "Trivandrum, Kerala, India",
-      short: "Kerala, India",
+      full: "Bethany Building, 1st Floor, Nalanchira Kurishadi Junction, Nalanchira P.O, Opposite Federal Bank ATM, MC Road, Trivandrum – 695015",
+      short: "Nalanchira, Trivandrum, Kerala",
     },
   },
   
   // Website
   website: {
-    url: "https://travancoremedical.com",
+    url: "https://trivandrummedicalsystem.com",
     description: {
       default: "Leading distributor of Auto CPAP, BiPAP, Oxygen Concentrators, and respiratory care equipment. Quality medical devices for sleep apnea treatment and home oxygen therapy.",
       short: "Leading distributor of Auto CPAP, BiPAP, Oxygen Concentrators, and respiratory care equipment.",
