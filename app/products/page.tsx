@@ -34,7 +34,7 @@ export default function ProductsPage() {
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 leading-tight drop-shadow-lg">
               Our Products
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-primary-100 drop-shadow-md">
+            <p className="text-base sm:text-lg md:text-xl text-primary-100 drop-shappdow-md">
               Premium medical equipment for sleep apnea treatment and
               respiratory care
             </p>

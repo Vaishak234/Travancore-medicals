@@ -36,31 +36,31 @@ export default function Home() {
             alt="Medical Equipment for Sleep Apnea and Respiratory Care"
             priority
           />
-          {/* Enhanced overlay with gradient for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50"></div>
+          {/* Black overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="relative container-custom h-full flex items-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl text-white">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight drop-shadow-2xl">
               Premium Medical Equipment for Sleep & Respiratory Care
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-primary-50 drop-shadow-lg">
+            <p className="hidden md:block text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-primary-50 drop-shadow-lg">
               Leading distributor of Auto CPAP, BiPAP, Oxygen Concentrators, and
               world-class respiratory care equipment in India.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-row gap-2 sm:gap-4">
               <Link
                 href="/products"
-                className="btn-primary text-center bg-white text-primary-600 hover:bg-primary-50 shadow-xl text-sm sm:text-base"
+                className="btn-primary text-center bg-white text-primary-600 hover:bg-primary-50 shadow-xl text-xs sm:text-base px-4 py-2 sm:px-6 sm:py-3 flex-1 sm:flex-none"
               >
                 View Products
               </Link>
               <a
                 href={APP_CONSTANTS.contact.phone.tel}
-                className="btn-secondary text-center bg-primary-600/90 text-white border-2 border-white hover:bg-primary-700 shadow-xl text-sm sm:text-base"
+                className="text-center bg-primary-700 text-white border-2 border-white hover:bg-primary-800 shadow-xl text-xs sm:text-base px-4 py-2 sm:px-6 sm:py-3 flex-1 sm:flex-none rounded-lg font-semibold transition-all duration-200"
               >
-                <span className="flex items-center justify-center space-x-2">
-                  <FiPhone />
+                <span className="flex items-center justify-center space-x-1 sm:space-x-2">
+                  <FiPhone className="w-3 h-3 sm:w-auto sm:h-auto" />
                   <span>Call Us</span>
                 </span>
               </a>
