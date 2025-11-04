@@ -10,6 +10,7 @@ import StructuredData from "@/components/StructuredData";
 import ProductTabs from "@/components/ProductTabs";
 import ProductImage from "@/components/ProductImage";
 import ProductImageGallery from "@/components/ProductImageGallery";
+import { APP_CONSTANTS } from "@/constants/app.constant";
 
 export async function generateStaticParams() {
   return getAllProductSlugs().map((slug) => ({
@@ -32,10 +33,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   const productStructuredData = {
     name: product.name,
     description: product.fullDescription,
-    image: `https://travancoremedical.com${product.image}`,
+    image: `${APP_CONSTANTS.website.url}${product.image}`,
     brand: {
       "@type": "Brand",
-      name: "Travancore Medical System",
+      name: APP_CONSTANTS.name,
     },
     offers: {
       "@type": "Offer",
@@ -45,7 +46,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       priceCurrency: "INR",
       seller: {
         "@type": "Organization",
-        name: "Travancore Medical System",
+        name: APP_CONSTANTS.name,
       },
     },
     aggregateRating: {
@@ -153,7 +154,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
               <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                 <a
-                  href="tel:+919447950001"
+                  href={APP_CONSTANTS.contact.phone.tel}
                   className="btn-primary w-full text-center block text-sm sm:text-base"
                 >
                   <span className="flex items-center justify-center space-x-2">

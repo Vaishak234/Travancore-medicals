@@ -4,15 +4,14 @@ import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import HeroImage from "@/components/HeroImage";
 import SectionImage from "@/components/SectionImage";
 import MapSection from "@/components/MapSection";
+import { APP_CONSTANTS } from "@/constants/app.constant";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description:
-    "Get in touch with Travancore Medical System for inquiries about medical equipment, product information, support, or service. Call us at +91 99479 50001.",
+  description: `Get in touch with ${APP_CONSTANTS.name} for inquiries about medical equipment, product information, support, or service. Call us at ${APP_CONSTANTS.contact.phone.formatted}.`,
   openGraph: {
-    title: "Contact Us | Travancore Medical System",
-    description:
-      "Contact Travancore Medical System for medical equipment inquiries and support.",
+    title: `Contact Us | ${APP_CONSTANTS.name}`,
+    description: `Contact ${APP_CONSTANTS.name} for medical equipment inquiries and support.`,
   },
 };
 
@@ -24,11 +23,11 @@ export default function ContactPage() {
         <div className="absolute inset-0">
           <HeroImage
             src="/images/contact.jpg"
-            alt="Contact Travancore Medical System"
+            alt={`Contact ${APP_CONSTANTS.name}`}
             priority
-            objectPosition="top"
+            objectPosition="center "
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-900/20 to-primary-900/20"></div>
+          <div className="absolute inset-0 "></div>
         </div>
         <div className="relative container-custom h-full flex items-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl text-white">
@@ -62,10 +61,10 @@ export default function ContactPage() {
                       Phone
                     </h3>
                     <a
-                      href="tel:+919447950001"
+                      href={APP_CONSTANTS.contact.phone.tel}
                       className="text-primary-600 hover:text-primary-700 font-medium text-sm md:text-base break-words"
                     >
-                      +91 99479 50001
+                      {APP_CONSTANTS.contact.phone.formatted}
                     </a>
                   </div>
                 </div>
@@ -78,10 +77,10 @@ export default function ContactPage() {
                       Email
                     </h3>
                     <a
-                      href="mailto:info@travancoremedical.com"
+                      href={`mailto:${APP_CONSTANTS.contact.email}`}
                       className="text-primary-600 hover:text-primary-700 font-medium text-sm md:text-base break-all"
                     >
-                      info@travancoremedical.com
+                      {APP_CONSTANTS.contact.email}
                     </a>
                   </div>
                 </div>
@@ -94,7 +93,7 @@ export default function ContactPage() {
                       Location
                     </h3>
                     <p className="text-gray-600 text-sm md:text-base">
-                      Trivandrum, Kerala, India
+                      {APP_CONSTANTS.contact.location.full}
                     </p>
                   </div>
                 </div>
@@ -107,15 +106,21 @@ export default function ContactPage() {
                 <div className="space-y-2 text-gray-700 text-sm md:text-base">
                   <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
                     <span>Monday - Friday</span>
-                    <span className="font-medium">9:00 AM - 6:00 PM</span>
+                    <span className="font-medium">
+                      {APP_CONSTANTS.businessHours.weekdays}
+                    </span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
                     <span>Saturday</span>
-                    <span className="font-medium">9:00 AM - 2:00 PM</span>
+                    <span className="font-medium">
+                      {APP_CONSTANTS.businessHours.saturday}
+                    </span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
                     <span>Sunday</span>
-                    <span className="font-medium">Closed</span>
+                    <span className="font-medium">
+                      {APP_CONSTANTS.businessHours.sunday}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -186,9 +191,9 @@ export default function ContactPage() {
               Find Us
             </h2>
             <p className="text-base md:text-lg text-gray-600">
-              Our office is located in Trivandrum, Kerala, India. Visit us or
-              reach out for any inquiries about our medical equipment and
-              services.
+              Our office is located in {APP_CONSTANTS.contact.location.full}.
+              Visit us or reach out for any inquiries about our medical
+              equipment and services.
             </p>
           </div>
         </div>

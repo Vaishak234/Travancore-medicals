@@ -3,13 +3,14 @@ import { products, categories } from "@/data/products";
 import ProductImage from "@/components/ProductImage";
 import HeroImage from "@/components/HeroImage";
 import type { Metadata } from "next";
+import { APP_CONSTANTS } from "@/constants/app.constant";
 
 export const metadata: Metadata = {
   title: "Products",
   description:
     "Browse our complete range of medical equipment including Auto CPAP, BiPAP, Oxygen Concentrators, Travel CPAP, Portable Oxygen Concentrators, Home Sleep Study devices, and NIV Masks.",
   openGraph: {
-    title: "Medical Equipment Products | Travancore Medical System",
+    title: `Medical Equipment Products | ${APP_CONSTANTS.name}`,
     description:
       "Complete range of medical equipment for sleep apnea treatment and respiratory care.",
   },
@@ -26,7 +27,7 @@ export default function ProductsPage() {
             alt="Our Products - Medical Equipment"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-900/30 to-primary-900/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
         </div>
         <div className="relative container-custom h-full flex items-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl text-white">
@@ -120,7 +121,7 @@ export default function ProductsPage() {
                   )}
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-gray-600 mb-4 sm:mb-5 line-clamp-3 leading-relaxed min-h-[3.5rem] sm:min-h-[4.5rem]">
+                  <p className="text-xs sm:text-sm text-gray-600 mb-4 sm:mb-5 line-clamp-3 leading-relaxed overflow-hidden text-ellipsis">
                     {product.shortDescription}
                   </p>
 
@@ -148,7 +149,7 @@ export default function ProductsPage() {
               Medical Equipment for Sleep Apnea and Respiratory Care
             </h2>
             <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-              Travancore Medical System offers a comprehensive range of medical
+              {APP_CONSTANTS.name} offers a comprehensive range of medical
               equipment designed to improve the quality of life for patients
               with sleep apnea and respiratory conditions.
             </p>

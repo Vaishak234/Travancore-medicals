@@ -1,6 +1,6 @@
-# Travancore Medical System Website
+# Trivandrum Medical System Website
 
-A modern, SEO-optimized website for Travancore Medical System - a leading distributor of medical equipment for sleep apnea treatment and respiratory care.
+A modern, SEO-optimized website for Trivandrum Medical System - a leading distributor of medical equipment for sleep apnea treatment and respiratory care.
 
 ## Features
 
@@ -112,5 +112,5 @@ The site generates static files that can be deployed to:
 
 ## License
 
-© 2024 Travancore Medical System. All rights reserved.
+© 2024 Trivandrum Medical System. All rights reserved.
 

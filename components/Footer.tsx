@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import { APP_CONSTANTS } from "@/constants/app.constant";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,33 +12,32 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <h3 className="text-white text-xl font-bold mb-4">
-              Travancore Medical System
+              {APP_CONSTANTS.name}
             </h3>
-            <p className="mb-4">
-              Leading distributor of premium medical equipment for sleep apnea
-              treatment and respiratory care.
-            </p>
+            <p className="mb-4">{APP_CONSTANTS.website.description.short}</p>
             <div className="space-y-2">
               <div className="flex items-start space-x-3">
                 <FiMapPin className="mt-1 flex-shrink-0" />
-                <span className="text-sm">Kerala, India</span>
+                <span className="text-sm">
+                  {APP_CONSTANTS.contact.location.short}
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <FiPhone />
                 <a
-                  href="tel:+919447950001"
+                  href={APP_CONSTANTS.contact.phone.tel}
                   className="text-sm hover:text-white transition-colors"
                 >
-                  +91 99479 50001
+                  {APP_CONSTANTS.contact.phone.formatted}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <FiMail />
                 <a
-                  href="mailto:info@travancoremedical.com"
+                  href={`mailto:${APP_CONSTANTS.contact.email}`}
                   className="text-sm hover:text-white transition-colors"
                 >
-                  info@travancoremedical.com
+                  {APP_CONSTANTS.contact.email}
                 </a>
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
           <p>
-            &copy; {currentYear} Travancore Medical System. All rights reserved.
+            &copy; {currentYear} {APP_CONSTANTS.name}. All rights reserved.
           </p>
         </div>
       </div>

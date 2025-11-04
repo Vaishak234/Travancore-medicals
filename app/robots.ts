@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { APP_CONSTANTS } from '@/constants/app.constant'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://travancoremedical.com/sitemap.xml',
+    sitemap: `${APP_CONSTANTS.website.url}/sitemap.xml`,
   }
 }
 

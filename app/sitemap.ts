@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next'
 import { getAllProductSlugs } from '@/data/products'
+import { APP_CONSTANTS } from '@/constants/app.constant'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://travancoremedical.com'
+  const baseUrl = APP_CONSTANTS.website.url
   
   const productSlugs = getAllProductSlugs()
   const productUrls = productSlugs.map(slug => ({

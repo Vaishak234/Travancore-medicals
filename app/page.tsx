@@ -13,14 +13,13 @@ import ProductImage from "@/components/ProductImage";
 import HeroImage from "@/components/HeroImage";
 import SectionImage from "@/components/SectionImage";
 import type { Metadata } from "next";
+import { APP_CONSTANTS } from "@/constants/app.constant";
 
 export const metadata: Metadata = {
-  description:
-    "Travancore Medical System - Leading distributor of Auto CPAP, BiPAP, Oxygen Concentrators, Travel CPAP, and respiratory care equipment. Quality medical devices for effective treatment.",
+  description: `${APP_CONSTANTS.name} - ${APP_CONSTANTS.website.description.short}`,
   openGraph: {
-    title: "Travancore Medical System - Premium Medical Equipment",
-    description:
-      "Leading distributor of Auto CPAP, BiPAP, Oxygen Concentrators, and respiratory care equipment.",
+    title: `${APP_CONSTANTS.name} - Premium Medical Equipment`,
+    description: APP_CONSTANTS.website.description.short,
   },
 };
 
@@ -35,12 +34,10 @@ export default function Home() {
           <HeroImage
             src="/images/hero.avif"
             alt="Medical Equipment for Sleep Apnea and Respiratory Care"
-            fallbackSrc="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1920&q=80&auto=format&fit=crop"
             priority
           />
           {/* Enhanced overlay with gradient for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/30 to-primary-900/30"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50"></div>
         </div>
         <div className="relative container-custom h-full flex items-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl text-white">
@@ -59,7 +56,7 @@ export default function Home() {
                 View Products
               </Link>
               <a
-                href="tel:+919447950001"
+                href={APP_CONSTANTS.contact.phone.tel}
                 className="btn-secondary text-center bg-primary-600/90 text-white border-2 border-white hover:bg-primary-700 shadow-xl text-sm sm:text-base"
               >
                 <span className="flex items-center justify-center space-x-2">
@@ -138,7 +135,7 @@ export default function Home() {
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Premium quality medical devices from{" "}
               <span className="font-bold text-primary-600">
-                Travancore Medical System
+                {APP_CONSTANTS.name}
               </span>{" "}
               - Your trusted partner for sleep apnea treatment and respiratory
               care
@@ -277,12 +274,12 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
-              href="tel:+919447950001"
+              href={APP_CONSTANTS.contact.phone.tel}
               className="btn-primary bg-white text-primary-600 hover:bg-primary-50 text-sm sm:text-base"
             >
               <span className="flex items-center justify-center space-x-2">
                 <FiPhone />
-                <span>Call +91 99479 50001</span>
+                <span>Call {APP_CONSTANTS.contact.phone.formatted}</span>
               </span>
             </a>
             <Link

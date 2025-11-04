@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { getProductBySlug } from "@/data/products";
+import { APP_CONSTANTS } from "@/constants/app.constant";
 
 export async function generateMetadata({
   params,
@@ -15,7 +16,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: product.seoTitle || `${product.name} | Travancore Medical System`,
+    title: product.seoTitle || `${product.name} | ${APP_CONSTANTS.name}`,
     description: product.seoDescription || product.fullDescription,
     keywords: product.metaKeywords || [product.name, product.category],
     openGraph: {
@@ -38,7 +39,7 @@ export async function generateMetadata({
       images: [product.image],
     },
     alternates: {
-      canonical: `https://travancoremedical.com/products/${product.slug}`,
+      canonical: `${APP_CONSTANTS.website.url}/products/${product.slug}`,
     },
   };
 }

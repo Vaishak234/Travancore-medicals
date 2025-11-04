@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import { FiShield, FiUsers, FiAward, FiTruck } from "react-icons/fi";
 import HeroImage from "@/components/HeroImage";
 import SectionImage from "@/components/SectionImage";
+import { APP_CONSTANTS } from "@/constants/app.constant";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description:
-    "Learn about Travancore Medical System - Leading distributor of premium medical equipment for sleep apnea treatment and respiratory care in India.",
+  description: `Learn about ${APP_CONSTANTS.name} - ${APP_CONSTANTS.website.description.short}`,
   openGraph: {
-    title: "About Us | Travancore Medical System",
-    description:
-      "Leading distributor of premium medical equipment for sleep apnea treatment and respiratory care.",
+    title: `About Us | ${APP_CONSTANTS.name}`,
+    description: APP_CONSTANTS.website.description.short,
   },
 };
 
@@ -21,18 +20,17 @@ export default function AboutPage() {
       <section className="relative h-[300px] md:h-[400px] lg:h-[450px] overflow-hidden">
         <div className="absolute inset-0">
           <HeroImage
-            src="/images/about.avif"
-            alt="About Travancore Medical System"
-            fallbackSrc="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1920&q=80&auto=format&fit=crop"
+            src="/images/about.jpg"
+            alt={`About ${APP_CONSTANTS.name}`}
             priority
-            objectPosition="center "
+            objectPosition="center 10%"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-900/50 to-primary-900/50"></div>
+          <div className="absolute inset-0 "></div>
         </div>
         <div className="relative container-custom h-full flex items-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl text-white">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 leading-tight drop-shadow-lg">
-              About Travancore Medical System
+              About {APP_CONSTANTS.name}
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-primary-100 drop-shadow-md">
               Your trusted partner in sleep apnea treatment and respiratory care
