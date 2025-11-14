@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { products, categories } from "@/data/products";
-import ProductImage from "@/components/ProductImage";
+import { products } from "@/data/products";
 import HeroImage from "@/components/HeroImage";
+import ProductCard from "@/components/ProductCard";
 import type { Metadata } from "next";
 import { APP_CONSTANTS } from "@/constants/app.constant";
 
@@ -23,7 +23,7 @@ export default function ProductsPage() {
       <section className="relative h-[300px] md:h-[400px] lg:h-[450px] overflow-hidden">
         <div className="absolute inset-0">
           <HeroImage
-            src="/images/product.avif"
+            src="/img/products.jpg"
             alt="Our Products - Medical Equipment"
             priority
           />
@@ -71,71 +71,7 @@ export default function ProductsPage() {
         <div className="container-custom">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {products.map((product) => (
-              <Link
-                key={product.id}
-                href={`/products/${product.slug}`}
-                className="group bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary-400 hover:-translate-y-1"
-              >
-                {/* Image Section with Medical Badge */}
-                <div className="relative h-56 sm:h-64 md:h-72 bg-gradient-to-br from-slate-50 via-white to-primary-50 overflow-hidden">
-                  <ProductImage
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className={`object-cover object-${product.position}`}
-                    showFallback={false}
-                  />
-
-                  {/* Category Badge */}
-                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 z-20">
-                    <span className="bg-white/95 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs font-bold text-primary-700 shadow-md border border-primary-100">
-                      {categories.find((c) => c.id === product.category)?.name}
-                    </span>
-                  </div>
-
-                  {/* Overlay Gradient */}
-                </div>
-
-                {/* Content Section */}
-                <div className="p-4 sm:p-6 lg:p-7">
-                  {/* Product Title */}
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 group-hover:text-primary-600 transition-colors text-gray-900 leading-tight">
-                    {product.name}
-                  </h3>
-
-                  {/* Manufacturer Section */}
-                  {product.manufacturer && (
-                    <div className="mb-3 sm:mb-4 pb-3 sm:pb-4 border-b border-gray-100">
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="w-1 h-5 sm:h-6 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full"></div>
-                        <div>
-                          <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold">
-                            Manufactured by
-                          </p>
-                          <p className="text-sm sm:text-base font-bold text-gray-900">
-                            {product.manufacturer}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-gray-600 mb-4 sm:mb-5 line-clamp-3 leading-relaxed overflow-hidden text-ellipsis">
-                    {product.shortDescription}
-                  </p>
-
-                  {/* Footer */}
-                  <div className="flex items-center justify-between pt-2">
-                    <span className="text-primary-600 font-bold text-xs sm:text-sm inline-flex items-center group-hover:gap-2 gap-1.5 transition-all">
-                      View Details
-                      <span className="group-hover:translate-x-1 transition-transform text-sm sm:text-base">
-                        →
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </Link>
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>

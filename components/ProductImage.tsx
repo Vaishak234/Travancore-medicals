@@ -13,6 +13,11 @@ interface ProductImageProps {
   height?: number;
   showFallback?: boolean;
   fallbackText?: string;
+  quality?: number;
+  sizes?: string;
+  priority?: boolean;
+  objectPosition?: string;
+  objectFit?: "cover" | "contain" | "fill" | "none" | "scale-down";
 }
 
 export default function ProductImage({
@@ -24,6 +29,11 @@ export default function ProductImage({
   height,
   showFallback = true,
   fallbackText,
+  quality = 100,
+  sizes,
+  priority = false,
+  objectPosition,
+  objectFit = "cover",
 }: ProductImageProps) {
   const [error, setError] = useState(false);
 
@@ -43,12 +53,20 @@ export default function ProductImage({
   }
 
   if (fill) {
+    const style: React.CSSProperties = {};
+    if (objectPosition) style.objectPosition = objectPosition;
+    if (objectFit) style.objectFit = objectFit;
+
     return (
       <Image
         src={src}
         alt={alt}
         fill
         className={className}
+        style={Object.keys(style).length > 0 ? style : undefined}
+        quality={quality}
+        sizes={sizes || "(max-width: 768px) 100vw, 50vw"}
+        priority={priority}
         onError={() => setError(true)}
       />
     );
@@ -61,6 +79,8 @@ export default function ProductImage({
       width={width}
       height={height}
       className={className}
+      quality={quality}
+      priority={priority}
       onError={() => setError(true)}
     />
   );

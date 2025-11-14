@@ -1,17 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { products } from "@/data/products";
-import {
-  FiPhone,
-  FiShield,
-  FiTruck,
-  FiHeadphones,
-  FiArrowRight,
-  FiCheck,
-} from "react-icons/fi";
+import { FiPhone, FiArrowRight, FiCheck } from "react-icons/fi";
 import ProductImage from "@/components/ProductImage";
-import HeroImage from "@/components/HeroImage";
-import SectionImage from "@/components/SectionImage";
+import HeroCarousel from "@/components/HeroCarousel";
+import FeaturesSection from "@/components/FeaturesSection";
 import type { Metadata } from "next";
 import { APP_CONSTANTS } from "@/constants/app.constant";
 
@@ -26,18 +19,18 @@ export const metadata: Metadata = {
 export default function Home() {
   const featuredProducts = products.slice(0, 4);
 
+  // Hero carousel images - add your images here
+  const heroImages = ["/img/home.webp", "/img/resmed/resmed.webp"];
+
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
+      {/* Hero Section with Carousel */}
+      <section className="relative h-[500px] sm:h-[700px] md:h-[800px] lg:h-[800px] overflow-hidden">
         <div className="absolute inset-0">
-          <HeroImage
-            src="/images/hero.avif"
+          <HeroCarousel
+            images={heroImages}
             alt="Medical Equipment for Sleep Apnea and Respiratory Care"
-            priority
           />
-          {/* Black overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="relative container-custom h-full flex items-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl text-white">
@@ -70,56 +63,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom mt-6 sm:mt-10">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            <div className="text-center">
-              <div className="bg-primary-100 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <FiShield className="text-primary-600 text-xl sm:text-2xl" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                Genuine Products
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">
-                100% authentic medical equipment from trusted manufacturers
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-primary-100 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <FiTruck className="text-primary-600 text-xl sm:text-2xl" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                Fast Delivery
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">
-                Quick and reliable delivery across India
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-primary-100 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <FiHeadphones className="text-primary-600 text-xl sm:text-2xl" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                24/7 Support
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">
-                Expert support whenever you need assistance
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-primary-100 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <FiShield className="text-primary-600 text-xl sm:text-2xl" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                Warranty
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">
-                Comprehensive warranty on all products
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FeaturesSection />
 
       {/* Featured Products Section */}
       <section className="section-padding bg-gradient-to-b from-white via-gray-50 to-white">
@@ -167,40 +111,20 @@ export default function Home() {
                         className={`object-cover object-${product.position}`}
                         showFallback={false}
                       />
-                      {/* <div className="absolute top-6 right-6 px-5 py-2 bg-primary-600 text-white rounded-full text-sm font-bold shadow-lg z-10">
-                        Featured
-                      </div> */}
                     </div>
                   </div>
 
                   {/* Content Section */}
                   <div className="md:w-3/5 px-4 sm:px-0">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-gray-900">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2 text-gray-900">
                       {product.name}
                     </h3>
-
-                    {/* Manufacturer and Distributor - Elegant Design */}
-                    <div className="mb-6 sm:mb-8 pb-4 sm:pb-6 border-b-2 border-primary-200 space-y-3 sm:space-y-4">
-                      {/* Manufacturer */}
-                      {product.manufacturer && (
-                        <div className="flex items-center gap-2 sm:gap-3">
-                          <div className="w-1 h-8 sm:h-10 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full"></div>
-                          <div>
-                            <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">
-                              Manufactured by
-                            </p>
-                            <p className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
-                              {product.manufacturer}
-                            </p>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Full Description */}
-                    <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-4 sm:mb-6 leading-relaxed">
-                      {product.shortDescription}
-                    </p>
+                    {/* Product Label */}
+                    {product.label && (
+                      <p className="text-lg sm:text-xl md:text-2xl text-primary-600 font-medium mb-4 sm:mb-6">
+                        {product.label}
+                      </p>
+                    )}
 
                     {/* Full Description Details */}
                     <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">
@@ -237,11 +161,6 @@ export default function Home() {
                           size={18}
                         />
                       </div>
-                      {/* {product.price && (
-                        <span className="text-gray-600 font-semibold text-lg">
-                          {product.price}
-                        </span>
-                      )} */}
                     </div>
                   </div>
                 </Link>

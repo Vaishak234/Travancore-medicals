@@ -16,12 +16,11 @@ export async function generateMetadata({
   }
 
   return {
-    title: product.seoTitle || `${product.name} | ${APP_CONSTANTS.name}`,
-    description: product.seoDescription || product.fullDescription,
-    keywords: product.metaKeywords || [product.name, product.category],
+    title: `${product.name} | ${APP_CONSTANTS.name}`,
+    description: product.fullDescription,
     openGraph: {
-      title: product.seoTitle || product.name,
-      description: product.seoDescription || product.fullDescription,
+      title: product.name,
+      description: product.fullDescription,
       images: [
         {
           url: product.image,
@@ -34,8 +33,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: product.seoTitle || product.name,
-      description: product.seoDescription || product.fullDescription,
+      title: product.name,
+      description: product.fullDescription,
       images: [product.image],
     },
     alternates: {

@@ -8,8 +8,7 @@ import {
 import { FiPhone, FiCheck, FiArrowLeft } from "react-icons/fi";
 import StructuredData from "@/components/StructuredData";
 import ProductTabs from "@/components/ProductTabs";
-import ProductImage from "@/components/ProductImage";
-import ProductImageGallery from "@/components/ProductImageGallery";
+import ProductImageSection from "@/components/ProductImageSection";
 import { APP_CONSTANTS } from "@/constants/app.constant";
 
 export async function generateStaticParams() {
@@ -25,9 +24,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     notFound();
   }
 
-  // Related products (same category, excluding current)
+  // Related products (excluding current)
   const relatedProducts = products
-    .filter((p) => p.category === product.category && p.id !== product.id)
+    .filter((p) => p.id !== product.id)
     .slice(0, 3);
 
   const productStructuredData = {
@@ -40,9 +39,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     },
     offers: {
       "@type": "Offer",
-      availability: product.inStock
-        ? "https://schema.org/InStock"
-        : "https://schema.org/OutOfStock",
       priceCurrency: "INR",
       seller: {
         "@type": "Organization",
@@ -99,36 +95,25 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
             {/* Product Images */}
             <div>
-              <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gradient-to-br from-primary-50 to-accent-50 rounded-xl mb-4 overflow-hidden border border-gray-200">
-                <ProductImage
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className={`object-cover object-${product.position}`}
-                  fallbackText={product.name}
-                />
-              </div>
-              {product.images && product.images.length > 0 && (
-                <ProductImageGallery
-                  images={product.images}
-                  productName={product.name}
-                />
-              )}
+              <ProductImageSection
+                mainImage={product.image}
+                galleryImages={product.images}
+                productName={product.name}
+                imagePosition={product.position}
+              />
             </div>
 
             {/* Product Info */}
             <div>
-              <div className="mb-3 sm:mb-4">
-                <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 bg-primary-100 text-primary-700 rounded-full text-xs sm:text-sm font-semibold">
-                  {product.category}
-                </span>
-              </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-gray-900">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2 text-gray-900">
                 {product.name}
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-                {product.shortDescription}
-              </p>
+              {/* Product Label */}
+              {product.label && (
+                <p className="text-base sm:text-lg md:text-xl text-primary-600 font-medium mb-3 sm:mb-4">
+                  {product.label}
+                </p>
+              )}
 
               {/* Key Highlights */}
               {product.benefits && product.benefits.length > 0 && (
