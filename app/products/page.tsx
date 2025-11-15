@@ -25,9 +25,10 @@ export default function ProductsPage() {
           <HeroImage
             src="/img/products.jpg"
             alt="Our Products - Medical Equipment"
+            objectPosition="top"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40  to-black/40"></div>
         </div>
         <div className="relative container-custom h-full flex items-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl text-white">

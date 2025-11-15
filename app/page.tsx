@@ -20,7 +20,11 @@ export default function Home() {
   const featuredProducts = products.slice(0, 4);
 
   // Hero carousel images - add your images here
-  const heroImages = ["/img/home.webp", "/img/resmed/resmed.webp"];
+  const heroImages = [
+    "/img/home.webp",
+    "/img/resmed/resmed.webp",
+    "img/products.jpg",
+  ];
 
   return (
     <div>
@@ -182,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-primary-600 text-white">
+      <section className="section-padding bg-[#1E5A9A] text-white">
         <div className="container-custom text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
             Need Expert Advice?
