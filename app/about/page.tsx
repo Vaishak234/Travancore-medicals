@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { FiShield, FiUsers, FiAward, FiTruck } from "react-icons/fi";
+import {
+  FiShield,
+  FiUsers,
+  FiAward,
+  FiTruck,
+  FiCheckCircle,
+} from "react-icons/fi";
 import HeroImage from "@/components/HeroImage";
 import SectionImage from "@/components/SectionImage";
 import { APP_CONSTANTS } from "@/constants/app.constant";
@@ -150,6 +156,239 @@ export default function AboutPage() {
                 care, recognized for our commitment to quality, patient care,
                 and innovation.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Authorized Retailer & Brands */}
+      <section className="section-padding bg-white">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-block mb-3 sm:mb-4 px-4 sm:px-6 py-1.5 sm:py-2 bg-primary-100 text-primary-700 rounded-full text-xs sm:text-sm font-semibold">
+              Authorized Retailer
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
+              ResMed Authorized Retailer
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              We are proud to be an authorized ResMed retailer, ensuring you
+              receive genuine, certified products with full manufacturer
+              warranty and support.
+            </p>
+          </div>
+
+          {/* ResMed Authorized Retailer Highlight */}
+          <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
+            <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-10 shadow-lg border-2 border-primary-200">
+              <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+                <div className="flex-shrink-0">
+                  <div className="bg-white w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center shadow-md">
+                    <FiCheckCircle className="text-primary-600 text-3xl sm:text-4xl" />
+                  </div>
+                </div>
+                <div className="flex-1 text-center sm:text-left">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-900 mb-3 sm:mb-4">
+                    Official ResMed Authorized Retailer
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6">
+                    As an authorized ResMed retailer, we guarantee authentic
+                    ResMed products including CPAP machines, BiPAP devices,
+                    masks, and accessories. All products come with official
+                    warranty, genuine parts, and access to ResMed&apos;s
+                    comprehensive support services including myAir app
+                    connectivity and remote monitoring capabilities.
+                  </p>
+                  <div className="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-lg text-sm font-semibold text-primary-700 shadow-sm">
+                      <FiCheckCircle className="text-primary-600" />
+                      Genuine Products
+                    </span>
+                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-lg text-sm font-semibold text-primary-700 shadow-sm">
+                      <FiCheckCircle className="text-primary-600" />
+                      Official Warranty
+                    </span>
+                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-lg text-sm font-semibold text-primary-700 shadow-sm">
+                      <FiCheckCircle className="text-primary-600" />
+                      Expert Support
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Brands Section */}
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
+              Our Trusted Brands
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              We partner with world-renowned manufacturers to bring you the best
+              in medical equipment
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {/* ResMed Brand */}
+              <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow border border-gray-200">
+                <div className="text-center">
+                  <div className="bg-primary-100 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                    <FiAward className="text-primary-600 text-2xl sm:text-3xl" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">
+                    ResMed
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
+                    World leader in sleep apnea and respiratory care solutions
+                  </p>
+                  <div className="space-y-2 text-left">
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        CPAP & BiPAP Machines
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        Sleep Masks & Accessories
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        Home Sleep Study Devices
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        Portable Ventilators
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Philips Brand */}
+              <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow border border-gray-200">
+                <div className="text-center">
+                  <div className="bg-primary-100 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                    <FiAward className="text-primary-600 text-2xl sm:text-3xl" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">
+                    Philips Respironics
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
+                    Leading manufacturer of respiratory care equipment
+                  </p>
+                  <div className="space-y-2 text-left">
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        Oxygen Concentrators
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        Portable Oxygen Devices
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        Respiratory Support Equipment
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        Home Care Solutions
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Brands */}
+              <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow border border-gray-200">
+                <div className="text-center">
+                  <div className="bg-primary-100 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                    <FiAward className="text-primary-600 text-2xl sm:text-3xl" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">
+                    Premium Brands
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
+                    Trusted manufacturers for medical equipment and accessories
+                  </p>
+                  <div className="space-y-2 text-left">
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        CPAP Accessories
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        Mask Components
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        Tubing & Filters
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <FiCheckCircle
+                        className="text-primary-600 mt-1 flex-shrink-0"
+                        size={18}
+                      />
+                      <span className="text-xs sm:text-sm text-gray-700">
+                        Cleaning Supplies
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
