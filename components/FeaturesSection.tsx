@@ -27,7 +27,7 @@ export default function FeaturesSection() {
 
   return (
     <section className="section-padding bg-gray-50">
-      <div className="container-custom mt-4 sm:mt-6 md:mt-10">
+      <div className="container-custom mt-2 sm:mt-4 md:mt-10">
         {/* Mobile: Horizontal Scrollable */}
         <div className="block sm:hidden">
           <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 pb-2">

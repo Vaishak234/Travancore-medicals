@@ -15,6 +15,9 @@ export default function Footer() {
               {APP_CONSTANTS.name}
             </h3>
             <p className="mb-4">{APP_CONSTANTS.website.description.short}</p>
+            <p className="mb-4 text-sm text-gray-400">
+              Resmed authorised dealer | Oxynovo all kerala dealer
+            </p>
             <div className="space-y-2">
               <div className="flex items-start space-x-3">
                 <FiMapPin className="mt-1 flex-shrink-0" />
